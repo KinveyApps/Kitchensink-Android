@@ -14,11 +14,15 @@ Try features such as:
 ## Set up Kitchensink Project
 
 1. Download the [Kitchensink](https://github.com/KinveyApps/StatusShare-Android/archive/master.zip) project.
-2. In Eclipse, go to __File &rarr; Import…__
-3. Click __Android &rarr; Existing Android Code into Workspace__
-4. __Browse…__ to set __Root Directory__ to the extracted zip from step 1
-5. In the __Projects__ box, make sure the __HomeActivity__ project check box and the __library__ project from Action Bar Sherlock are selected. Then click __Finish__.
-6. Specify your app key and secret in `assets/kinvey.properties` constant variables
+ 
+2. Download the [ActionBar Sherlock Library](http://actionbarsherlock.com/)
+3. Download the [ViewPager Indicator Library](http://viewpagerindicator.com/) 
+4. In Eclipse, go to __File &rarr; Import…__
+5. Click __Android &rarr; Existing Android Code into Workspace__
+6. __Browse…__ to set __Root Directory__ to the extracted zip from step 1
+7. Repeat steps 4 - 7 for the zip from step 2 and 3 as well.
+7. In the __Projects__ box, make sure the __HomeActivity__ project check box, the __library__ project from Action Bar Sherlock, and the __library__ project from ViewPagerIndicator are selected. Then click __Finish__.
+8. Specify your app key and secret in `assets/kinvey.properties` constant variables
 ![app.key and app.secret]()
 
 
