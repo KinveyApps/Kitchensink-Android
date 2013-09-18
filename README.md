@@ -1,7 +1,7 @@
 Kitchensink-Android
 ===================
 
-This application provides an introduction to Version 2 of Kinvey's Android library.
+This application provides a compilation of various use-cases for Kinvey's Android library.
 
 Try features such as:
 
@@ -9,6 +9,8 @@ Try features such as:
 * See AppData functionality in action, by saving and retrieving entities.
 * Upload and Download text files through our File API.
 * Try out Push notifications.
+* Set up a Custom Endpoint and use it
+* Perform User lookup and modify the current User
 
 
 ## Set up Kitchensink Project
