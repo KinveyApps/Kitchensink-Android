@@ -15,9 +15,12 @@ package com.kinvey.sample.kitchensink;
 
 import android.app.Application;
 
+import android.content.Intent;
+import android.util.Log;
 import com.kinvey.android.Client;
-import com.kinvey.android.push.PushOptions;
-import com.kinvey.android.push.UrbanAirshipPushOptions;
+import com.kinvey.android.callback.KinveyUserCallback;
+import com.kinvey.java.User;
+import com.kinvey.sample.kitchensink.account.LoginActivity;
 
 /**
  * @author mjsalinger
@@ -34,16 +37,30 @@ public class KitchenSinkApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        myClient = new Client.Builder(this.getApplicationContext()).build();
+        myClient = new Client.Builder(this.getApplicationContext()).setRetrieveUserCallback(new KinveyUserCallback() {
+            @Override
+            public void onSuccess(User result) {
+                Log.i("ok", "got success");
+                if (!myClient.user().isUserLoggedIn()) {
+                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                    login.setFlags(login.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(login);
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable error) {
+                Log.i("ok", "got failure");
+                if (!myClient.user().isUserLoggedIn()) {
+                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                    login.setFlags(login.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(login);
+                }
+            }
+        }).build();
+
     }
 
-    public void registerPush() {
-        PushOptions options = myClient.push().getPushOptions(pushAppKey, pushAppSecret,
-                false);
-      //  myClient.push().setIntentReceiver(com.kinvey.sample.kitchensink.push.CustomPushReceiver.class);
-        myClient.push().initialize(options, this);
-
-    }
 
     public void setsClient(Client myClient) {
         this.myClient = myClient;

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/kinvey/!svn/ver/7628/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/file
+END
+DeleteFragment.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/kinvey/!svn/ver/7513/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/file/DeleteFragment.java
+END
+FileActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/kinvey/!svn/ver/7513/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/file/FileActivity.java
+END
+DownloadFragment.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/kinvey/!svn/ver/7628/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/file/DownloadFragment.java
+END
+UploadFragment.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/kinvey/!svn/ver/7513/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/file/UploadFragment.java
+END

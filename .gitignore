@@ -14,7 +14,8 @@ gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
-
+.svn
+.DS_Store
 # Eclipse project files
 .classpath
 .project

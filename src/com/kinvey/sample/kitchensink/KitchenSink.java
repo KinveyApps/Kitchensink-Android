@@ -17,6 +17,7 @@ package com.kinvey.sample.kitchensink;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.kinvey.android.AsyncCustomEndpoints;
 import com.kinvey.android.Client;
 import com.kinvey.sample.kitchensink.account.LoginActivity;
 
@@ -68,17 +70,6 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
         //
         Logger.getLogger(HttpTransport.class.getName()).setLevel(LOGGING_LEVEL);
 
-        //create kinvey client and init appdata here.
-//        AbstractClient.initialize(appKey, appSecret, getApplicationContext());//.appData(collectionName, MyEntity.class);
-//        try {
-//            AbstractClient.getInstance().user().login();
-//        } catch(IOException ex) {
-//            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
-//            Logger.getLogger(HttpTransport.class.getName()).log(Level.SEVERE, ex.getMessage());
-//        }
-
-
-
     }
 
     private void bindViews(){
@@ -90,7 +81,6 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
                         Activity.LAYOUT_INFLATER_SERVICE));
         mList.setAdapter(mAdapter);
         mList.setOnItemClickListener(this);
-
     }
 
     @Override
@@ -113,6 +103,7 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
         switch (item.getItemId()) {
 
             case R.id.menu_item_login:
+                ((KitchenSinkApplication)getApplicationContext()).getClient().user().logout().execute();
                 login();
                 return true;
             default:
@@ -122,7 +113,7 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
 
     private void login(){
        Intent login = new Intent(this, LoginActivity.class);
-        startActivity(login);
+       startActivity(login);
 
     }
 
@@ -137,6 +128,8 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
     private class FeatureAdapter extends ArrayAdapter<Loader.Feature> {
 
         private LayoutInflater mInflater;
+        private Typeface roboto;
+
 
         public FeatureAdapter(Context context, List<Loader.Feature> objects,
                                 LayoutInflater inf) {
@@ -146,6 +139,7 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
             // field anyways, it is just needed in the constructor.
             super(context, R.id.row_feature_name, objects);
             this.mInflater = inf;
+            roboto = Typeface.createFromAsset(context.getAssets(), "Roboto-Thin.ttf");
 
         }
 
@@ -199,6 +193,7 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
                 if (null == tvName) {
                     tvName = (TextView) mRow.findViewById(R.id.row_feature_name);
                 }
+                tvName.setTypeface(roboto);
                 return tvName;
             }
 
@@ -206,6 +201,19 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
                 if (null == tvBlurb) {
                     tvBlurb = (TextView) mRow.findViewById(R.id.row_feature_blurb);
                 }
+                tvBlurb.setTypeface(roboto);
+                return tvBlurb;
+            }
+
+
+
+        }
+    }
+
+
+
+}
+              }
                 return tvBlurb;
             }
 

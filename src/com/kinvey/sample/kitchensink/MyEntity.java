@@ -16,6 +16,7 @@ package com.kinvey.sample.kitchensink;
 import android.location.Location;
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
+import com.kinvey.java.model.KinveyMetaData;
 
 /**
  * @author edwardf
@@ -27,15 +28,15 @@ public class MyEntity extends GenericJson{
     @Key("_id")
     private String id;
 
-//    @Key("_geoloc")
-//    private Location location;
-
     @Key("name")
     private String name;
 
-    public MyEntity(){}
+    @Key("_acl")
+    private KinveyMetaData.AccessControlList acl;
 
-
+    public MyEntity(){
+        this.acl = new KinveyMetaData.AccessControlList();
+    }
 
     public String getId() {
         return id;
@@ -53,11 +54,11 @@ public class MyEntity extends GenericJson{
         this.name = name;
     }
 
-//    public Location getLocation() {
-//        return location;
-//    }
-//
-//    public void setLocation(Location location) {
-//        this.location = location;
-//    }
+    public KinveyMetaData.AccessControlList getAccess() {
+        return acl;
+    }
+
+    public void setAccess(KinveyMetaData.AccessControlList acl) {
+        this.acl = acl;
+    }
 }

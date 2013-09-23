@@ -13,11 +13,13 @@
  */
 package com.kinvey.sample.kitchensink;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.actionbarsherlock.app.SherlockFragment;
+import com.kinvey.android.Client;
 
 /**
  * @author edwardf
@@ -25,9 +27,13 @@ import com.actionbarsherlock.app.SherlockFragment;
  */
 public abstract class UseCaseFragment extends SherlockFragment {
 
+    private Typeface roboto;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        roboto = Typeface.createFromAsset(getSherlockActivity().getAssets(), "Roboto-Thin.ttf");
     }
 
 
@@ -85,5 +91,12 @@ public abstract class UseCaseFragment extends SherlockFragment {
         return ((FeatureActivity) getSherlockActivity()).getApplicationContext();
     }
 
+    public Typeface getRoboto() {
+        return roboto;
+    }
 
+    public Client getClient(){
+        return ((FeatureActivity)getSherlockActivity()).getClient();
+
+    }
 }

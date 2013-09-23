@@ -27,9 +27,37 @@ Try features such as:
 8. Specify your app key and secret in `assets/kinvey.properties` constant variables
 ![app.key and app.secret]()
 
+##Set up a Custom Endpoint
+
+One of the features used in this application is a Custom Endpoint, which must be created on your backend.  The Custom Endpoint used in this sample application just returns a hard-coded String, however [take a look at the business logic guide](http://devcenter.kinvey.com/android/guides/business-logic) for more information about what can be accomplished with Custom Endpoints.
+
+1.  Visit [the Kinvey console, and login to your application](http://console.kinvey.com) and go to the Custom Endpoint add-on
+
+    ![Custom Endpoint add-on](https://raw.github.com/KinveyApps/Kitchensink-Android/master/assets/android-oauth1-tutorial-custom.png)
+
+2.  Create a new Custom Endpoint, named `doit`.  
+
+3.  Paste the following code into the javascript editor:
+
+    ```
+    function onRequest(request, response, modules){  
+        response.body = [{"resp": "Hit a custom Endpoint!"}];
+        response.complete(201);
+    }
+    ```
+    
+4.  The class `com.kinvey.sample.kitchensink.custom.EndpointFragment` consumes this Endpoint, so make sure the first parameter of `callEndpoint(…)` matches the name of the Custom Endpoint (in this case, `doit`).
+ 
+ 
+##Configure Push Notifications
+ 
+Push Notifications are tied to the application's package context, so you will have to change the package declaration to configure push notifications.
 
 
+1.  Perform a global find and replace in your editor of choice replacing `com.kinvey.sample.kitchensink` with a unique package name.  Note this must be done in the Manifest, and in all classes.  If you use an automated refactor tool, ensure that all instances of the string have been replaced.
 
+2.  [Take a look at our Push Configuration guide, and register for Push notifications](http://devcenter.kinvey.com/android/guides/push) to get started!
+  
 ##License
 
 

@@ -10,14 +10,17 @@
   or implied. See the License for the specific language governing permissions and limitations under
   the License.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestDrive" >
+    android:id="@+id/ks_parent"
+    >
 
     <ListView android:id="@+id/ks_list"
               android:layout_width="match_parent"
+              android:layout_margin="8dp"
+              android:dividerHeight="16dp"
+              android:divider="#00000000"
               android:layout_height="match_parent" />
 
-</RelativeLayout>
+</LinearLayout>

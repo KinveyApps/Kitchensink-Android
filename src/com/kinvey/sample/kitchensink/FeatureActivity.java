@@ -20,6 +20,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.kinvey.android.Client;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.List;
@@ -72,6 +73,10 @@ public abstract class FeatureActivity extends SherlockFragmentActivity{
 
     public KitchenSinkApplication getApplicationContext(){
         return (KitchenSinkApplication) super.getApplicationContext();
+    }
+
+    public Client getClient(){
+        return ((KitchenSinkApplication) getApplicationContext()).getClient();
     }
 
 

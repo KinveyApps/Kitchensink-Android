@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/kinvey/!svn/ver/7641/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/push
+END
+GCMLoggingReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/kinvey/!svn/ver/7513/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/push/GCMLoggingReceiver.java
+END
+PushFragment.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/kinvey/!svn/ver/7641/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/push/PushFragment.java
+END
+PushActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/kinvey/!svn/ver/7513/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/push/PushActivity.java
+END
+GCMReciever.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/kinvey/!svn/ver/7513/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/push/GCMReciever.java
+END
