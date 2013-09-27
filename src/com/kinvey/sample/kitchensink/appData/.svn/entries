@@ -1,14 +1,14 @@
 10
 
 dir
-8035
+8069
 https://subversion.assembla.com/svn/kinvey/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/appData
 https://subversion.assembla.com/svn/kinvey
 
 
 
-2013-09-16T15:53:15.656126Z
-7955
+2013-09-25T21:13:10.203106Z
+8064
 edwardf
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2013-09-16T15:14:31.000000Z
-c8e9caf43b4fe159a821549726b2672c
-2013-09-16T15:52:21.462412Z
-7954
+2013-09-25T21:03:55.000000Z
+e15eeccef67ec96f3abf7d0779d645e8
+2013-09-25T21:13:10.203106Z
+8064
 edwardf
 
 
@@ -58,7 +58,7 @@ edwardf
 
 
 
-2641
+5762
 
 AppDataActivity.java
 file
@@ -134,10 +134,10 @@ file
 
 
 
-2013-09-16T14:13:58.000000Z
-8c251ae7873072868cd6e830186fa8ee
-2013-09-16T15:53:15.656126Z
-7955
+2013-09-25T21:01:44.000000Z
+d712cc50b23e827639442d031d9511a7
+2013-09-25T21:13:10.203106Z
+8064
 edwardf
 
 
@@ -160,7 +160,7 @@ edwardf
 
 
 
-5425
+5480
 
 QueryFragment.java
 file

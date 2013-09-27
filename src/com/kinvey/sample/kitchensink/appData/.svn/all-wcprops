@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 114
-/svn/kinvey/!svn/ver/7955/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/appData
+/svn/kinvey/!svn/ver/8064/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/appData
 END
 AggregateFragment.java
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/kinvey/!svn/ver/7954/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/appData/AggregateFragment.java
+/svn/kinvey/!svn/ver/8064/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/appData/AggregateFragment.java
 END
 PutFragment.java
 K 25
 svn:wc:ra_dav:version-url
 V 131
-/svn/kinvey/!svn/ver/7955/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/appData/PutFragment.java
+/svn/kinvey/!svn/ver/8064/java-library/trunk/samples/kitchensink-android/src/com/kinvey/sample/kitchensink/appData/PutFragment.java
 END
 AppDataActivity.java
 K 25

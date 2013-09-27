@@ -13,17 +13,14 @@
  */
 package com.kinvey.sample.kitchensink.appData;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import com.google.api.client.json.GenericJson;
 import com.kinvey.android.AsyncAppData;
-import com.kinvey.android.callback.KinveyListCallback;
 import com.kinvey.java.Query;
-import com.kinvey.java.core.KinveyClientCallback;
+import com.kinvey.java.core.KinveyAggregateCallback;
+import com.kinvey.java.model.Aggregation;
 import com.kinvey.sample.kitchensink.KitchenSink;
-import com.kinvey.sample.kitchensink.MyEntity;
 import com.kinvey.sample.kitchensink.R;
 import com.kinvey.sample.kitchensink.UseCaseFragment;
 
@@ -35,7 +32,14 @@ import java.util.ArrayList;
  */
 public class AggregateFragment extends UseCaseFragment implements View.OnClickListener {
 
-    private Button tryIt;
+    private Button count;
+    private Button sum;
+    private Button min;
+    private Button max;
+    private Button average;
+
+    private AsyncAppData<Aggregation.Result[]> appdata;
+
 
     @Override
     public int getViewID() {
@@ -44,8 +48,19 @@ public class AggregateFragment extends UseCaseFragment implements View.OnClickLi
 
     @Override
     public void bindViews(View v) {
-        tryIt = (Button) v.findViewById(R.id.appdata_agg_perform);
-        tryIt.setOnClickListener(this);
+
+        appdata = getClient().appData(KitchenSink.collectionName, Aggregation.Result[].class);
+
+        count = (Button) v.findViewById(R.id.appdata_agg_count);
+        count.setOnClickListener(this);
+        sum = (Button) v.findViewById(R.id.appdata_agg_sum);
+        sum.setOnClickListener(this);
+        min = (Button) v.findViewById(R.id.appdata_agg_min);
+        min.setOnClickListener(this);
+        max = (Button) v.findViewById(R.id.appdata_agg_max);
+        max.setOnClickListener(this);
+        average = (Button) v.findViewById(R.id.appdata_agg_average);
+        average.setOnClickListener(this);
     }
 
     @Override
@@ -53,33 +68,100 @@ public class AggregateFragment extends UseCaseFragment implements View.OnClickLi
         return "Aggregates";
     }
 
-    private void performAggregation(){
-
-        AsyncAppData<GenericJson[]> aggregate = getClient().appData(KitchenSink.collectionName, GenericJson[].class);
-
-        ArrayList <String> fields = new ArrayList<String>();
-        fields.add("_acl.creator");
-        Query q = new Query();
-        aggregate.count(fields,q, new KinveyListCallback<GenericJson>() {
-            @Override
-            public void onSuccess(GenericJson[] res) {
-                Toast.makeText(getSherlockActivity(), "got: " + res[0].get("_result"), Toast.LENGTH_SHORT ).show();
-
-
-            }
-
+    private void performCount(ArrayList<String> fields, Query q){
+        appdata.count(fields, q, new KinveyAggregateCallback() {
             @Override
             public void onFailure(Throwable error) {
-                Toast.makeText(getSherlockActivity(), "something went wrong -> " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getSherlockActivity(), "something went wrong -> " + error.getMessage(), Toast.LENGTH_SHORT).show();            }
+
+            @Override
+            public void onSuccess(Aggregation res) {
+
+                Toast.makeText(getSherlockActivity(), "got: " +res.results[0].get("_result"), Toast.LENGTH_SHORT ).show();
 
             }
         });
     }
 
+    private void performSum(ArrayList<String> fields, Query q){
+        appdata.sum(fields, "aggregateField",  q, new KinveyAggregateCallback() {
+            @Override
+            public void onFailure(Throwable error) {
+                Toast.makeText(getSherlockActivity(), "something went wrong -> " + error.getMessage(), Toast.LENGTH_SHORT).show();            }
+
+            @Override
+            public void onSuccess(Aggregation res) {
+
+                Toast.makeText(getSherlockActivity(), "got: " +res.results[0].get("_result"), Toast.LENGTH_SHORT ).show();
+
+            }
+        });
+    }
+
+    private void performMin(ArrayList<String> fields, Query q){
+        appdata.min(fields, "aggregateField",  q, new KinveyAggregateCallback() {
+            @Override
+            public void onFailure(Throwable error) {
+                Toast.makeText(getSherlockActivity(), "something went wrong -> " + error.getMessage(), Toast.LENGTH_SHORT).show();            }
+
+            @Override
+            public void onSuccess(Aggregation res) {
+
+                Toast.makeText(getSherlockActivity(), "got: " +res.results[0].get("_result"), Toast.LENGTH_SHORT ).show();
+
+            }
+        });
+    }
+
+    private void performMax(ArrayList<String> fields, Query q){
+        appdata.max(fields, "aggregateField",  q, new KinveyAggregateCallback() {
+            @Override
+            public void onFailure(Throwable error) {
+                Toast.makeText(getSherlockActivity(), "something went wrong -> " + error.getMessage(), Toast.LENGTH_SHORT).show();            }
+
+            @Override
+            public void onSuccess(Aggregation res) {
+
+                Toast.makeText(getSherlockActivity(), "got: " +res.results[0].get("_result"), Toast.LENGTH_SHORT ).show();
+
+            }
+        });
+    }
+
+    private void performAverage(ArrayList<String> fields, Query q){
+        appdata.average(fields, "aggregateField",  q, new KinveyAggregateCallback() {
+            @Override
+            public void onFailure(Throwable error) {
+                Toast.makeText(getSherlockActivity(), "something went wrong -> " + error.getMessage(), Toast.LENGTH_SHORT).show();            }
+
+            @Override
+            public void onSuccess(Aggregation res) {
+
+                Toast.makeText(getSherlockActivity(), "got: " +res.results[0].get("_result"), Toast.LENGTH_SHORT ).show();
+
+            }
+        });
+    }
+
+
+
     @Override
     public void onClick(View view) {
-        if (view == tryIt){
-            performAggregation();
+
+        ArrayList <String> fields = new ArrayList<String>();
+        fields.add("_acl.creator");
+        Query q = new Query();
+
+        if (view == count){
+            performCount(fields, q);
+        }else if (view == sum){
+            performSum(fields, q);
+        }else if (view == min){
+            performMin(fields, q);
+        }else if (view == max){
+             performMax(fields, q);
+        }else if (view == average){
+            performAverage(fields, q);
         }
     }
 }

@@ -59,27 +59,7 @@ public class LookupFragment extends UseCaseFragment implements  View.OnClickList
     }
 
 
-    private void performUserUpdate(){
 
-        AsyncUser user = getApplicationContext().getClient().user();
-        user.put("last_name", "Smith");
-        user.update(new KinveyUserCallback() {
-            @Override
-            public void onSuccess(User result) {
-                Toast.makeText(getSherlockActivity(), "updated user!", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Throwable error) {
-                Toast.makeText(getSherlockActivity(), "update failed -> " + error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
-
-
-    }
 
 
     private void performUserLookup(){
@@ -109,32 +89,32 @@ public class LookupFragment extends UseCaseFragment implements  View.OnClickList
         user.retrieve(new String[]{"ref"}, new KinveyUserCallback() {
             @Override
             public void onSuccess(User result) {
-                Log.i("got user", result.toString());
+                Toast.makeText(getSherlockActivity(), "got user!", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onFailure(Throwable error) {
-                Log.i("failed", error.getMessage());
+                Toast.makeText(getSherlockActivity(), "failed -> " + error.getMessage(), Toast.LENGTH_SHORT).show();
                 error.printStackTrace();;
             }
         });
 
 
-        Query q = new Query();
-        q.equals("username", "keepon");
-        user.retrieve(q, new String[]{"ref"}, new KinveyUserListCallback() {
-            @Override
-            public void onSuccess(User[] result) {
-                Log.i("got users", result.toString());
-            }
-
-            @Override
-            public void onFailure(Throwable error) {
-                Log.i("failed", error.getMessage());
-                error.printStackTrace();;
-            }
-        });
+//        Query q = new Query();
+//        q.equals("username", "keepon");
+//        user.retrieve(q, new String[]{"ref"}, new KinveyUserListCallback() {
+//            @Override
+//            public void onSuccess(User[] result) {
+//                Log.i("got users", result.toString());
+//            }
+//
+//            @Override
+//            public void onFailure(Throwable error) {
+//                Log.i("failed", error.getMessage());
+//                error.printStackTrace();;
+//            }
+//        });
 
 
 
@@ -145,7 +125,7 @@ public class LookupFragment extends UseCaseFragment implements  View.OnClickList
         if (view == lookup){
             performUserLookup();
         }else if (view == updateUser){
-            performUserUpdate();
+            performRetrievalWithReferences();
         }
     }
 }
