@@ -30,7 +30,7 @@ public class CustomEndpointActivity extends FeatureActivity {
         ArrayList<UseCaseFragment> ret = new ArrayList<UseCaseFragment>();
         EndpointFragment end = new EndpointFragment();
         ret.add(end);
-
-
-        return ret;    }
+        
+        return ret;   
+    }
 }

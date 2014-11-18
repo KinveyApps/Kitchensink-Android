@@ -173,9 +173,6 @@ public class PutFragment extends UseCaseFragment implements View.OnClickListener
                 for (int i = 0 ; i < ids.length; i++){
 
                     ids[i] = result[i].getId();
-
-
-
                 }
 
             }

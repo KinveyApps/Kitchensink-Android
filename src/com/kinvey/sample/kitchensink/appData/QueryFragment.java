@@ -34,12 +34,6 @@ public class QueryFragment extends UseCaseFragment implements View.OnClickListen
     private Button notCurrent;
 
 
-
-
-
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -57,8 +51,6 @@ public class QueryFragment extends UseCaseFragment implements View.OnClickListen
 
         current.setOnClickListener(this);
         notCurrent.setOnClickListener(this);
-
-       // q.equals("_acl.creator", source.getAuthorID());
     }
 
     @Override
