@@ -16,6 +16,8 @@ gen/
 local.properties
 .svn
 .DS_Store
+
 # Eclipse project files
 .classpath
 .project
+.settings/

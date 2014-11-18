@@ -205,23 +205,7 @@ public class KitchenSink extends SherlockFragmentActivity implements AdapterView
                 return tvBlurb;
             }
 
-
-
         }
     }
-
-
-
-}
-              }
-                return tvBlurb;
-            }
-
-
-
-        }
-    }
-
-
 
 }
