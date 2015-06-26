@@ -16,6 +16,7 @@ package com.kinvey.sample.kitchensink.account;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -25,8 +26,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragment;
+import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyUserCallback;
 import com.kinvey.java.User;
+import com.kinvey.sample.kitchensink.KitchenSinkApplication;
 import com.kinvey.sample.kitchensink.R;
 import com.kinvey.sample.kitchensink.UseCaseFragment;
 
@@ -207,13 +210,11 @@ public class RegisterFragment extends UseCaseFragment implements View.OnClickLis
     public void onClick(View v) {
         if (v == registerButton){
             submit();
-
         }
-
     }
 
     public void submit() {
-        getClient().user().create(userName.getText().toString(), password.getText().toString(), new KinveyUserCallback() {
+    	((KitchenSinkApplication) getSherlockActivity().getApplicationContext()).getClient().user().create(userName.getText().toString(), password.getText().toString(), new KinveyUserCallback() {
             public void onFailure(Throwable t) {
                 if (getSherlockActivity() == null){
                     return;

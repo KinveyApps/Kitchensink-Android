@@ -15,9 +15,12 @@ package com.kinvey.sample.kitchensink.push;
 
 import android.os.AsyncTask;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.kinvey.android.Client;
 import com.kinvey.sample.kitchensink.R;
 import com.kinvey.sample.kitchensink.UseCaseFragment;
 
@@ -56,7 +59,7 @@ public class PushFragment extends UseCaseFragment implements View.OnClickListene
 
 
         //Not going to hook up intents for this sample, so just wait for five seconds before redrawing
-        new CountDownTimer(5000,1000){
+        new CountDownTimer(10000,1000){
 
             @Override
             public void onTick(long miliseconds){}
@@ -64,15 +67,14 @@ public class PushFragment extends UseCaseFragment implements View.OnClickListene
             @Override
             public void onFinish(){
                 //after 5 seconds update the status
-                if (getApplicationContext() != null)
-                pushStatus.setText(Boolean.toString(getApplicationContext().getClient().push().isPushEnabled()));
+                Log.i(Client.TAG, "CountDownTimer - onFinish - " + Boolean.toString(getApplicationContext().getClient().push().isPushEnabled()));
+                if (getApplicationContext() != null) {
+                	pushStatus.setText(Boolean.toString(getApplicationContext().getClient().push().isPushEnabled()));
+                }
             }
         }.start();
 
-
     }
-
-
 
     @Override
     public String getTitle() {
