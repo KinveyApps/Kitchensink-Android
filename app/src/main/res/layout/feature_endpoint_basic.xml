@@ -11,24 +11,41 @@
   or implied. See the License for the specific language governing permissions and limitations under
   the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/descriptionText"
         android:text="@string/custom_endpoints_description"
         style="@style/usecase_description"/>
 
-    <Button android:id="@+id/tryItBtn"
+    <EditText
+        android:id="@+id/endpointEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionText"
+        android:layout_margin="8dip"
+        android:hint="@string/custom_endpoints_edit_hint"
+        android:text="@string/custom_endpoints_def_name" />
+
+    <Button
+        android:id="@+id/tryItBtn"
+        android:layout_below="@+id/endpointEdit"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        style="@style/usecase_action_button"
         android:text="try it" />
 
     <TextView
         android:id="@+id/endpointResultText"
+        android:layout_below="@+id/tryItBtn"
         android:layout_width="match_parent"
+        android:padding="8dip"
+        android:gravity="center"
         android:text="res"
         android:layout_height="wrap_content" />
 
-</LinearLayout>
+</RelativeLayout>

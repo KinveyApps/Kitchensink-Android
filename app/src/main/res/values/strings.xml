@@ -66,8 +66,10 @@
         \nresponse.body = [{"resp": "seems to be working!"}];
         \nresponse.complete(201);
         \n}\n and then you can try it here</string>
+    <string name="custom_endpoints_def_name">testKitchenSink</string>
+    <string name="custom_endpoints_edit_hint">Enter name of custom endpoint</string>
 
-	<string name="user_update_description">Update information in the user collection via the User API</string>
+    <string name="user_update_description">Update information in the user collection via the User API</string>
     <string name="user_update_update_cur_user">Update current user</string>
     <string name="user_update_other_user">Update other user (needs permission)</string>
 

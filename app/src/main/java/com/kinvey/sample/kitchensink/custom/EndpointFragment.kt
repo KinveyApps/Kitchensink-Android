@@ -15,6 +15,7 @@ package com.kinvey.sample.kitchensink.custom
 
 import android.view.View
 import android.view.View.OnClickListener
+import android.widget.Toast
 import com.google.api.client.json.GenericJson
 import com.kinvey.android.callback.KinveyListCallback
 import com.kinvey.sample.kitchensink.R
@@ -39,9 +40,18 @@ class EndpointFragment : UseCaseFragment(), OnClickListener {
         tryItBtn?.setOnClickListener(this)
     }
 
+    private fun getEnpointName(): String {
+        return endpointEdit?.text?.toString() ?: ""
+    }
+
     private fun hitTheEndpoint() {
+        val endpointName = getEnpointName()
+        if (endpointName.isNullOrEmpty()) {
+            Toast.makeText(context, "Endpoint name is empty!", Toast.LENGTH_LONG).show()
+            return
+        }
         val endpoints = client?.customEndpoints<GenericJson, GenericJson>(GenericJson::class.java)
-        endpoints?.callEndpoint("doit", GenericJson(),
+        endpoints?.callEndpoint(endpointName, GenericJson(),
         object : KinveyListCallback<GenericJson> {
             override fun onSuccess(result: List<GenericJson>) {
                 if (result == null) {
