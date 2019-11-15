@@ -42,10 +42,10 @@ class AggregateFragment : UseCaseFragment(), OnClickListener {
 
     override val viewID = R.layout.feature_appdata_aggregate
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         aggCountBtn?.setOnClickListener(this)
         aggSumBtn?.setOnClickListener(this)
-        aggMinBtn.setOnClickListener(this)
+        aggMinBtn?.setOnClickListener(this)
         aggMaxBtn?.setOnClickListener(this)
         aggAverageBtn?.setOnClickListener(this)
     }
@@ -56,10 +56,10 @@ class AggregateFragment : UseCaseFragment(), OnClickListener {
     private fun performCount(fields: ArrayList<String>, q: Query) {
         entityStore?.group(AggregateType.COUNT, fields, null, q, object : KinveyAggregateCallback() {
             override fun onFailure(error: Throwable) {
-                Toast.makeText(activity, "something went wrong -> " + error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "something went wrong -> ${error.message}", Toast.LENGTH_SHORT).show()
             }
             override fun onSuccess(res: Aggregation) {
-                Toast.makeText(activity, "got: " + res.res!!.size, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "got: ${res.results?.get(0)?.result}", Toast.LENGTH_SHORT).show()
             }
         }, null)
     }
@@ -67,10 +67,10 @@ class AggregateFragment : UseCaseFragment(), OnClickListener {
     private fun performSum(fields: ArrayList<String>, q: Query) {
         entityStore?.group(AggregateType.SUM, fields, "aggregateField", q, object : KinveyAggregateCallback() {
             override fun onFailure(error: Throwable) {
-                Toast.makeText(activity, "something went wrong -> " + error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "something went wrong -> ${error.message}", Toast.LENGTH_SHORT).show()
             }
             override fun onSuccess(res: Aggregation) {
-                Toast.makeText(activity, "got: " + res.res!!.size, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "got: ${res.results?.get(0)?.result}", Toast.LENGTH_SHORT).show()
             }
         }, null)
     }
@@ -78,10 +78,10 @@ class AggregateFragment : UseCaseFragment(), OnClickListener {
     private fun performMin(fields: ArrayList<String>, q: Query) {
         entityStore?.group(AggregateType.MIN, fields, "aggregateField", q, object : KinveyAggregateCallback() {
             override fun onFailure(error: Throwable) {
-                Toast.makeText(activity, "something went wrong -> " + error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "something went wrong -> ${error.message}", Toast.LENGTH_SHORT).show()
             }
             override fun onSuccess(res: Aggregation) {
-                Toast.makeText(activity, "got: " + res.res!!.size, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "got: ${res.results?.get(0)?.result}", Toast.LENGTH_SHORT).show()
             }
         }, null)
     }
@@ -89,10 +89,10 @@ class AggregateFragment : UseCaseFragment(), OnClickListener {
     private fun performMax(fields: ArrayList<String>, q: Query) {
         entityStore?.group(AggregateType.MAX, fields, "aggregateField", q, object : KinveyAggregateCallback() {
             override fun onFailure(error: Throwable) {
-                Toast.makeText(activity, "something went wrong -> " + error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "something went wrong -> ${error.message}", Toast.LENGTH_SHORT).show()
             }
             override fun onSuccess(res: Aggregation) {
-                Toast.makeText(activity, "got: " + res.res!!.size, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "got: ${res.results?.get(0)?.result}", Toast.LENGTH_SHORT).show()
             }
         }, null)
     }
@@ -100,10 +100,10 @@ class AggregateFragment : UseCaseFragment(), OnClickListener {
     private fun performAverage(fields: ArrayList<String>, q: Query) {
         entityStore?.group(AggregateType.AVERAGE, fields, "aggregateField", q, object : KinveyAggregateCallback() {
             override fun onFailure(error: Throwable) {
-                Toast.makeText(activity, "something went wrong -> " + error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "something went wrong -> ${error.message}", Toast.LENGTH_SHORT).show()
             }
             override fun onSuccess(res: Aggregation) {
-                Toast.makeText(activity, "got: " + res.res!!.size, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "got: ${res.results?.get(0)?.result}", Toast.LENGTH_SHORT).show()
             }
         }, null)
     }

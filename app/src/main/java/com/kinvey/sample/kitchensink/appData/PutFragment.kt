@@ -37,6 +37,9 @@ class PutFragment : UseCaseFragment(), OnClickListener {
     private var addCount = 0
     private var ids: Array<String> = arrayOf()
     private var entityStore: DataStore<MyEntity>? = null
+    private val random = Random()
+    private val RANDOM_NAME_MAX = 10000
+    private val RANDOM_AGGREGATE_MAX = 10
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +50,7 @@ class PutFragment : UseCaseFragment(), OnClickListener {
 
     override val title = "Put"
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         createBtn?.setOnClickListener(this)
         deleteAllBtn?.setOnClickListener(this)
         putCountSpinner?.adapter = ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, arrayOf("1", "2", "3"))
@@ -62,42 +65,43 @@ class PutFragment : UseCaseFragment(), OnClickListener {
             AndroidUtil.toast(this@PutFragment, "Try something besides just creating new entities!  Delete some first.")
             return
         }
-        for (i in 0 until howMany) {
+        val entities = generateEntities(howMany)
+        entityStore?.save(entities, object : KinveyClientCallback<List<MyEntity>> {
+            override fun onSuccess(result: List<MyEntity>) {
+                addCount += result.size
+                putTotalCountText?.text = (Integer.valueOf(putTotalCountText?.text.toString()) + 1).toString()
+                if (addCount == howMany) {
+                    AndroidUtil.toast(this@PutFragment, "Successfully saved $addCount")
+                    putCountSpinner?.setSelection(0)
+                }
+                count()
+            }
+            override fun onFailure(error: Throwable) {
+                AndroidUtil.toast(this@PutFragment, "something went wrong on put -> ${error.message}")
+            }
+        })
+    }
+
+    private fun generateEntities(howMany: Int): List<MyEntity> {
+        return 1.rangeTo(howMany).map {
             val ent = MyEntity()
-            ent.name = "name" + Random().nextInt(10000)
+            ent.name = "name " + random.nextInt(RANDOM_NAME_MAX)
             ent.access.setGloballyWritable(true)
             ent.access.setGloballyReadable(true)
-            ent.aggField = Random().nextInt(10)
-            entityStore?.save(ent, object : KinveyClientCallback<MyEntity> {
-                override fun onSuccess(result: MyEntity) {
-                    addCount++
-                    putTotalCountText?.text = (Integer.valueOf(putTotalCountText?.text.toString()) + 1).toString()
-                    if (addCount == howMany) {
-                        AndroidUtil.toast(this@PutFragment, "Successfully saved $addCount")
-                        putCountSpinner?.setSelection(0)
-                    }
-                }
-                override fun onFailure(error: Throwable) {
-                    AndroidUtil.toast(this@PutFragment, "something went wrong on put ->" + error.message)
-                }
-            })
+            ent.aggField = Random().nextInt(RANDOM_AGGREGATE_MAX)
+            ent
         }
     }
 
     private fun deleteAll() {
-        /*
-		if (ids == null || ids.length < 1){
-			return;
-		}
-	    */
-        val q = Query()
+        val q = KinveyUtils.getDeleteAllQuery(client) ?: return
         entityStore?.delete(q, object : KinveyDeleteCallback {
             override fun onSuccess(integer: Int?) {
-                AndroidUtil.toast(activity, "deleted " + integer.toString() + "entities!")
+                AndroidUtil.toast(activity, "deleted $integer entities!")
                 count()
             }
             override fun onFailure(error: Throwable) {
-                AndroidUtil.toast(activity, "something went wrong ->" + error.message)
+                AndroidUtil.toast(activity, "something went wrong -> ${error.message}")
             }
         })
     }
@@ -109,16 +113,19 @@ class PutFragment : UseCaseFragment(), OnClickListener {
         }
     }
 
+    private fun updateItemsCount(list: List<MyEntity>) {
+        putTotalCountText?.text = list.size.toString()
+    }
+
     private fun count() {
         entityStore?.find(object : KinveyReadCallback<MyEntity> {
             override fun onSuccess(result: KinveyReadResponse<MyEntity>?) {
                 val list = result?.result ?: arrayListOf()
-                putTotalCountText?.text = list.size.toString()
+                updateItemsCount(list)
                 ids = list.mapNotNull { it.id }.toTypedArray()
             }
-
             override fun onFailure(error: Throwable) {
-                AndroidUtil.toast(activity, "something went wrong ->" + error.message)
+                AndroidUtil.toast(activity, "something went wrong -> ${error.message}")
             }
         })
     }

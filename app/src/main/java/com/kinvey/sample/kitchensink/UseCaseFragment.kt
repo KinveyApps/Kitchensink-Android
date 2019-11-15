@@ -27,14 +27,13 @@ import com.kinvey.android.model.User
  */
 abstract class UseCaseFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, saved: Bundle?): View? {
+        return inflater.inflate(viewID, group, false)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, saved: Bundle?): View? {
-        val v: View = inflater.inflate(viewID, group, false)
-        bindViews(v)
-        return v
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews(view)
     }
 
     override fun onResume() {
@@ -58,7 +57,7 @@ abstract class UseCaseFragment : Fragment() {
      *
      * @param v  the View object inflated by the Fragment, this will be the parent of any View Widget within the fragment.
      */
-    abstract fun bindViews(v: View)
+    abstract fun initViews(v: View)
 
     /**
      * In this method populate the view objects.  This is called from onResume, to ensure that the data displayed is at least refreshed when the fragment is resumed.

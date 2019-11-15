@@ -45,7 +45,7 @@ class DeleteFragment : UseCaseFragment(), OnClickListener {
     override val viewID: Int
         get() = layout.feature_file_delete
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         fileDeleteBtn?.setOnClickListener(this)
     }
 

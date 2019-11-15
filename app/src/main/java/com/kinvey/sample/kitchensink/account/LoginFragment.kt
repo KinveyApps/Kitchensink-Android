@@ -50,7 +50,7 @@ class LoginFragment : UseCaseFragment(), OnClickListener, OnCheckedChangeListene
 
     override val title = "Login"
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         loginBtn?.setOnClickListener(this)
         loginAnonCheckbox?.setOnCheckedChangeListener(this)
         addEditListeners()
@@ -145,16 +145,16 @@ class LoginFragment : UseCaseFragment(), OnClickListener, OnCheckedChangeListene
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(com.kinvey.sample.kitchensink.R.menu.menu_login, menu)
+        inflater.inflate(R.menu.menu_login, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             com.kinvey.sample.kitchensink.R.id.menu_sign_up -> {
-                val ft = activity!!.supportFragmentManager.beginTransaction()
-                ft.replace(R.id.content, RegisterFragment())
-                ft.addToBackStack("register")
-                ft.commit()
+                val ft = activity?.supportFragmentManager?.beginTransaction()
+                ft?.replace(R.id.content, RegisterFragment())
+                ft?.addToBackStack("register")
+                ft?.commit()
                 return true
             }
         }

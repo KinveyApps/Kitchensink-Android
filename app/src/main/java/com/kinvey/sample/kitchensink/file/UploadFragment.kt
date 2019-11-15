@@ -50,7 +50,7 @@ class UploadFragment : UseCaseFragment(), OnClickListener {
 
     override val title = "Upload"
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         fileUploadBtn?.setOnClickListener(this)
     }
 

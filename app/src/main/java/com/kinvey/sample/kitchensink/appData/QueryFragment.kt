@@ -25,7 +25,6 @@ import com.kinvey.java.store.StoreType
 import com.kinvey.sample.kitchensink.Constants
 import com.kinvey.sample.kitchensink.MyEntity
 import com.kinvey.sample.kitchensink.R
-import com.kinvey.sample.kitchensink.R.layout
 import com.kinvey.sample.kitchensink.UseCaseFragment
 import kotlinx.android.synthetic.main.feature_appdata_query.*
 
@@ -44,11 +43,11 @@ class QueryFragment : UseCaseFragment(), OnClickListener {
 
     override val title = "Query"
 
-    override val viewID = layout.feature_appdata_query
+    override val viewID = R.layout.feature_appdata_query
 
-    override fun bindViews(v: View) {
-        queryCurrentUserBtn.setOnClickListener(this)
-        queryNotCurrentUserBtn.setOnClickListener(this)
+    override fun initViews(v: View) {
+        queryCurrentUserBtn?.setOnClickListener(this)
+        queryNotCurrentUserBtn?.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -73,10 +72,10 @@ class QueryFragment : UseCaseFragment(), OnClickListener {
     private fun executeQueryAndUpdateView(q: Query) {
         entityStore?.find(q, object : KinveyReadCallback<MyEntity> {
             override fun onSuccess(result: KinveyReadResponse<MyEntity>?) {
-                Toast.makeText(activity, "got " + result?.result?.size.toString() + " results!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "got ${result?.result?.size} results!", Toast.LENGTH_SHORT).show()
             }
             override fun onFailure(error: Throwable) {
-                Toast.makeText(activity, "something went wrong -> " + error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "something went wrong -> ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

@@ -39,7 +39,7 @@ class RegisterFragment : UseCaseFragment(), OnClickListener {
 
     override val title = "register"
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         addEditListeners()
     }
 

@@ -48,7 +48,7 @@ class DownloadFragment : UseCaseFragment(), OnClickListener {
 
     override val title = "Download"
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         fileDownloadBtn?.setOnClickListener(this)
     }
 

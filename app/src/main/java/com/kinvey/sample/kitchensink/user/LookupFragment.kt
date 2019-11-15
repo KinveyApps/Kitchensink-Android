@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.feature_user_lookup.*
  */
 class LookupFragment : UseCaseFragment(), OnClickListener {
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         userLookupBtn.setOnClickListener(this)
         userLookupUpdateBtn.setOnClickListener(this)
     }

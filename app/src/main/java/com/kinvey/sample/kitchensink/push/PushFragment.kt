@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.feature_push.*
  */
 class PushFragment : UseCaseFragment(), OnClickListener {
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         pushRegisterBtn.setOnClickListener(this)
         val pushEnabledStr = "$isPushEnabled"
         pushStatusText.text = pushEnabledStr
@@ -45,7 +45,7 @@ class PushFragment : UseCaseFragment(), OnClickListener {
     }
 
     override fun onClick(v: View) {
-        if (v === pushStatusText) {
+        if (v === pushRegisterBtn) {
             registerPush()
         }
     }

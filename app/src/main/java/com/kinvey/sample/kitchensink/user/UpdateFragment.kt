@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.feature_user_update.*
  */
 class UpdateFragment : UseCaseFragment(), OnClickListener {
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         userUpdateCurrentBtn?.setOnClickListener(this)
         userUpdateOtherBtn?.setOnClickListener(this)
     }

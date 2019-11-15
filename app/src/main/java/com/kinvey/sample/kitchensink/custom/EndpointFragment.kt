@@ -35,7 +35,7 @@ class EndpointFragment : UseCaseFragment(), OnClickListener {
 
     override val title = "Endpoints"
 
-    override fun bindViews(v: View) {
+    override fun initViews(v: View) {
         tryItBtn?.setOnClickListener(this)
     }
 

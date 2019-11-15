@@ -49,8 +49,8 @@ class GetFragment : UseCaseFragment(), OnClickListener {
 
     override val title = "Get"
 
-    override fun bindViews(v: View) {
-        getBtn.setOnClickListener(this)
+    override fun initViews(v: View) {
+        getBtn?.setOnClickListener(this)
         getIdSpinner?.adapter = ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, arrayOf("--"))
         getIdSpinner?.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -80,7 +80,7 @@ class GetFragment : UseCaseFragment(), OnClickListener {
                 getIdValueText?.text = result.id
             }
             override fun onFailure(error: Throwable) {
-                AndroidUtil.toast(this@GetFragment, "something went wrong on getEntity ->" + error.message)
+                AndroidUtil.toast(this@GetFragment, "something went wrong on getEntity -> ${error.message}")
             }
         })
     }
@@ -102,7 +102,7 @@ class GetFragment : UseCaseFragment(), OnClickListener {
                 updateSpinner(result?.result)
             }
             override fun onFailure(error: Throwable) {
-                AndroidUtil.toast(activity, "something went wrong on get->" + error.message)
+                AndroidUtil.toast(activity, "something went wrong on get-> ${error.message}")
             }
         })
     }
