@@ -15,28 +15,17 @@ Try features such as:
 
 ## Set up Kitchensink Project
 
-1. Download the [Kitchensink](https://github.com/KinveyApps/StatusShare-Android/archive/master.zip) project.
-2. Download the latest Kinvey library (zip) and extract the downloaded zip file, from: http://devcenter.kinvey.com/android/downloads
-
-
+1. Download the [Kitchensink](https://github.com/KinveyApps/Kitchensink-Android/archive/master.zip) project.
+2. All the required libraries already added in `build.gradle` config file, need just to wait until all the libraries will be downloaded on first run in `Android Studio`.
+   
 ###Android Studio
 1. In Android Studio, go to **File &rarr; New &rarr; Import Project**
 2. **Browse** to the extracted zip from step 1, and click **OK**
 3. Click **Next** and **Finish**.
-4. Copy all jars in the **libs/** folder of the Kinvey Android library zip to the **lib/** folder at the root of the project
-5. Within the `Top-level` build.gradle script, add the following repository:
-
-	```
-    repositories {
-        maven { url "http://dl.bintray.com/populov/maven" }
-    }
-    ```
-    
-
-6.  Click the **play** button to start a build, if you still see compilation errors ensure the versions are correctly defined in the dependencies list
+4. Click the **play** button to start a build, if you still see compilation errors ensure the versions are correctly defined in the dependencies list
 
 ###Finally, for all IDEs
-7. Specify your app key and secret in `assets/kinvey.properties` constant variables
+5. Specify your app key and secret in `assets/kinvey.properties` constant variables
 `app.key` and `app.secret`
 
 ##Set up a Custom Endpoint
@@ -73,7 +62,7 @@ Push Notifications are tied to the application's package context, so you will ha
 ##License
 
 
-Copyright (c) 2014 Kinvey Inc.
+Copyright (c) 2019 Kinvey Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 in compliance with the License. You may obtain a copy of the License at
