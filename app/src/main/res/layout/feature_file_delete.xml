@@ -30,13 +30,11 @@
                     android:text="sample.txt"
                     style="@style/usecase_description"/>
 
-
             <TextView
                     android:text="@string/file_delete_description"
                     style="@style/usecase_description"/>
         </LinearLayout>
     </FrameLayout>
-
 
     <LinearLayout
             android:id="@+id/my_toolbar"
@@ -44,7 +42,7 @@
             android:layout_height="wrap_content">
 
         <Button
-                android:id="@+id/file_delete_button"
+                android:id="@+id/fileDeleteBtn"
                 style="@style/usecase_action_button"
                 android:text="Delete"/>
     </LinearLayout>

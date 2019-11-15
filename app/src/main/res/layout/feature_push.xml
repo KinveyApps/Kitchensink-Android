@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (c) 2014 Kinvey Inc.
+  Copyright (c) 2019 Kinvey Inc.
   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
   in compliance with the License. You may obtain a copy of the License at
   
@@ -23,7 +23,6 @@
             android:layout_height="0dip"
             android:layout_weight="1">
 
-
         <LinearLayout
                 style="@style/usecase_row"
                 android:orientation="vertical">
@@ -32,9 +31,9 @@
                       style="@style/usecase_description"/>
 
             <LinearLayout style="@style/usecase_row">
-                <TextView android:text="Push Status:"
+                <TextView android:text="@string/push_status"
                           style="@style/usecase_row_label"/>
-                <TextView android:id="@+id/push_status"
+                <TextView android:id="@+id/pushStatusText"
                           style="@style/usecase_row_label"/>
             </LinearLayout>
 
@@ -48,9 +47,9 @@
             android:layout_height="wrap_content">
 
         <Button
-                android:id="@+id/push_register_button"
-                style="@style/usecase_action_button"
-                android:text="Register for Push"/>
+            android:id="@+id/pushRegisterBtn"
+            style="@style/usecase_action_button"
+            android:text="@string/push_register"/>
 
     </LinearLayout>
 

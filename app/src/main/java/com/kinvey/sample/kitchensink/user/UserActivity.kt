@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 Kinvey Inc.
+ * Copyright (c) 2019 Kinvey Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -11,24 +11,17 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.kinvey.sample.kitchensink.user;
+package com.kinvey.sample.kitchensink.user
 
-import com.kinvey.sample.kitchensink.FeatureActivity;
-import com.kinvey.sample.kitchensink.UseCaseFragment;
-import com.kinvey.sample.kitchensink.push.PushFragment;
-
-import java.util.Arrays;
-import java.util.List;
+import com.kinvey.sample.kitchensink.FeatureActivity
+import com.kinvey.sample.kitchensink.UseCaseFragment
+import java.util.*
 
 /**
  * @author edwardf
  */
-public class UserActivity extends FeatureActivity {
+class UserActivity : FeatureActivity() {
 
-    @Override
-    public List<UseCaseFragment> getFragments() {
-        return Arrays.asList(new UseCaseFragment[]{
-                new LookupFragment() , new UpdateFragment()
-        });
-    }
+    override val fragments: List<UseCaseFragment>?
+        get() = listOf(LookupFragment(), UpdateFragment())
 }

@@ -17,7 +17,7 @@
     android:id="@+id/ks_parent"
     >
 
-    <ListView android:id="@+id/ks_list"
+    <ListView android:id="@+id/ksList"
               android:layout_width="match_parent"
               android:layout_margin="8dp"
               android:dividerHeight="16dp"

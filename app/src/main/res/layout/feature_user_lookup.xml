@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2014 Kinvey Inc.
+  Copyright (c) 2019 Kinvey Inc.
   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
   in compliance with the License. You may obtain a copy of the License at
   
@@ -15,6 +15,7 @@
               android:layout_height="match_parent"
               android:background="@color/ghost_white"
               android:orientation="vertical">
+
     <FrameLayout android:id="@+id/my_content"
                  android:layout_width="match_parent"
                  android:layout_height="0dip"
@@ -23,27 +24,25 @@
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
 
-
             <TextView android:text="@string/user_lookup_description"
                       style="@style/usecase_description"/>
 
             <LinearLayout style="@style/usecase_row">
                 <LinearLayout
                         style="@style/usecase_row_label"/>
-                <Button android:id="@+id/user_lookup_update"
-                        android:text="Update current user"
+                <Button android:id="@+id/userLookupUpdateBtn"
+                        android:text="@string/user_lookup_update_user"
                         style="@style/usecase_action_button"/>
             </LinearLayout>
 
             <LinearLayout style="@style/usecase_row">
                 <LinearLayout
                         style="@style/usecase_row_label"/>
-                <Button android:id="@+id/user_lookup_lookup"
-                        android:text="Perform lookup"
+                <Button android:id="@+id/userLookupBtn"
+                        android:text="@string/user_lookup_perform_lookup"
                         style="@style/usecase_action_button"/>
             </LinearLayout>
         </LinearLayout>
-
 
     </FrameLayout>
     <LinearLayout
@@ -53,6 +52,5 @@
         android:orientation="vertical">
 
     </LinearLayout>
-
 
 </LinearLayout>

@@ -15,52 +15,51 @@
               android:layout_height="match_parent"
               android:background="@color/ghost_white"
               android:orientation="vertical">
+
     <FrameLayout android:id="@+id/my_content"
                  android:layout_width="match_parent"
                  android:layout_height="0dip"
                  android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
-
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView android:text="@string/appdata_put_description"
                       style="@style/usecase_description"/>
 
             <LinearLayout style="@style/usecase_row">
-                <TextView android:text="How Many To Add?"
+                <TextView android:text="@string/put_how_many_text"
                           style="@style/usecase_row_label"/>
-                <Spinner android:id="@+id/appdata_put_count_spinner"
+                <Spinner android:id="@+id/putCountSpinner"
                          style="@style/usecase_row_value"/>
             </LinearLayout>
 
             <LinearLayout style="@style/usecase_row">
-                <TextView android:text="There are:"
+                <TextView android:text="@string/get_there_are_text"
                           style="@style/usecase_row_label"/>
-                <TextView android:id="@+id/appdata_put_total_count"
+                <TextView android:id="@+id/putTotalCountText"
                          style="@style/usecase_row_value"/>
             </LinearLayout>
 
-
             <LinearLayout style="@style/usecase_row">
-                <LinearLayout
-                        style="@style/usecase_row_label"/>
-                <Button android:id="@+id/appdata_put_delete"
-                        android:text="Delete all?"
-                        style="@style/usecase_action_button"/>
+                <LinearLayout style="@style/usecase_row_label"/>
+                <Button
+                    android:id="@+id/deleteAllBtn"
+                    android:text="@string/put_delete_all_text"
+                    style="@style/usecase_action_button"/>
             </LinearLayout>
         </LinearLayout>
 
-
     </FrameLayout>
-    <LinearLayout android:id="@+id/my_toolbar"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
-                android:id="@+id/appdata_put_button"
-                style="@style/usecase_action_button"
-                android:text="Create"/>
+           android:id="@+id/createBtn"
+           style="@style/usecase_action_button"
+           android:text="@string/put_create_text"/>
     </LinearLayout>
-
 
 </LinearLayout>

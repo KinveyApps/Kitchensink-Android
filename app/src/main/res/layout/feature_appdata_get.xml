@@ -15,65 +15,67 @@
               android:layout_height="match_parent"
               android:background="@color/ghost_white"
               android:orientation="vertical">
+
     <FrameLayout android:id="@+id/my_content"
                  android:layout_width="match_parent"
                  android:layout_height="0dip"
                  android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-
-            <TextView android:text="@string/appdata_get_description"
-                      style="@style/usecase_description"/>
+            <TextView
+                android:text="@string/appdata_get_description"
+                style="@style/usecase_description"/>
 
             <LinearLayout style="@style/usecase_row">
-                <TextView android:text="There are: "
+                <TextView android:text="@string/get_there_are_text"
                           style="@style/usecase_row_label"/>
 
-
-                <TextView android:id="@+id/appdata_get_current_count"
+                <TextView android:id="@+id/getCurrentCountText"
                           style="@style/usecase_row_value"/>
             </LinearLayout>
 
             <LinearLayout style="@style/usecase_row">
-                <TextView android:text="Viewing id: "
+                <TextView android:text="@string/get_view_id_text"
                           style="@style/usecase_row_label"/>
-                <Spinner android:id="@+id/appdata_get_id_spinner"
+                <Spinner android:id="@+id/getIdSpinner"
                          style="@style/usecase_row_value"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="2dp"
-                          android:background="@color/kinvey_orange"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/kinvey_orange"/>
 
             <LinearLayout style="@style/usecase_row">
-                <TextView android:text="id:"
+                <TextView android:text="@string/get_id_text"
                           style="@style/usecase_row_label"/>
-                <TextView android:id="@+id/appdata_get_id_value"
-                          android:text="..."
+                <TextView android:id="@+id/getIdValueText"
+                          android:text="@string/get_dots_text"
                           style="@style/usecase_row_value"/>
             </LinearLayout>
 
             <LinearLayout style="@style/usecase_row">
-                <TextView android:text="name:"
+                <TextView android:text="@string/get_name_text"
                           style="@style/usecase_row_label"/>
-                <TextView android:id="@+id/appdata_get_name_value"
-                          android:text="..."
+                <TextView android:id="@+id/getNameValueText"
+                          android:text="@string/get_dots_text"
                           style="@style/usecase_row_value"/>
             </LinearLayout>
-
 
         </LinearLayout>
-
 
     </FrameLayout>
     <LinearLayout android:id="@+id/my_toolbar"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content">
         <Button
-                android:id="@+id/appdata_get_button"
+                android:id="@+id/getBtn"
                 style="@style/usecase_action_button"
-                android:text="Load"/>
+                android:text="@string/get_load_text"/>
     </LinearLayout>
 
 

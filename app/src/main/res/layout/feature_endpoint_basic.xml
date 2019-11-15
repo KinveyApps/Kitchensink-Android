@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (c) 2014 Kinvey Inc.
+  Copyright (c) 2019 Kinvey Inc.
   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
   in compliance with the License. You may obtain a copy of the License at
   
@@ -16,11 +16,19 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <TextView
+        android:text="@string/custom_endpoints_description"
+        style="@style/usecase_description"/>
 
-    <TextView android:text="@string/custom_endpoints_description"
-              style="@style/usecase_description"/>
+    <Button android:id="@+id/tryItBtn"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="try it" />
 
-    <Button android:id="@+id/endpoint_basic_hitit" android:layout_height="wrap_content" android:text="try it"  android:layout_width="wrap_content" />
-    <TextView android:id="@+id/endpoint_basic_result" android:layout_width="match_parent"  android:text="res"    android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/endpointResultText"
+        android:layout_width="match_parent"
+        android:text="res"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

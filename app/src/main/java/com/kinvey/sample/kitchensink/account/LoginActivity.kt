@@ -17,6 +17,7 @@ import android.R.id
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.kinvey.android.Client
+import com.kinvey.android.model.User
 import com.kinvey.sample.kitchensink.App
 
 /**
@@ -36,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private val isUserLoggedIn: Boolean
-        private get() = client.isUserLoggedIn
+        get() = client?.isUserLoggedIn ?: false
 
-    private val client: Client<*>
-        private get() = (applicationContext as App).client
+    private val client: Client<User>?
+        get() = (applicationContext as App).client
 }

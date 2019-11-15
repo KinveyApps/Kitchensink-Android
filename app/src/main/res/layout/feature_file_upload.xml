@@ -23,38 +23,34 @@
             android:layout_height="0dip"
             android:layout_weight="1">
 
-
         <LinearLayout
                 style="@style/usecase_row"
                 android:orientation="vertical">
 
             <EditText
-                    android:id="@+id/file_upload_contents"
+                    android:id="@+id/fileUploadContentsEdit"
                     android:gravity="top|left"
                     android:inputType="textMultiLine"
-                    android:hint="Enter file contents!"
+                    android:hint="@string/upload_enter_file_content_text"
                     style="@style/usecase_description"/>
-
 
             <TextView
                     android:text="@string/file_upload_description"
                     style="@style/usecase_description"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/kinvey_orange"/>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="2dp"
-                          android:background="@color/kinvey_orange"/>
-
-            <TextView android:id="@+id/file_upload_progress"
+            <TextView android:id="@+id/fileUploadProgressText"
                       android:singleLine="false"
                       android:minLines="5"
                       style="@style/usecase_description"/>
 
-
         </LinearLayout>
 
-
     </FrameLayout>
-
 
     <LinearLayout
             android:id="@+id/my_toolbar"
@@ -62,11 +58,10 @@
             android:layout_height="wrap_content">
 
         <Button
-                android:id="@+id/file_upload_button"
-                style="@style/usecase_action_button"
-                android:text="Upload"/>
+            android:id="@+id/fileUploadBtn"
+            style="@style/usecase_action_button"
+            android:text="@string/upload_text"/>
 
     </LinearLayout>
-
 
 </LinearLayout>

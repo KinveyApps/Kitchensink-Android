@@ -19,23 +19,16 @@
     android:layout_height="match_parent">
 
     <me.relex.circleindicator.CircleIndicator
-        android:id="@+id/feature_indicator"
+        android:id="@+id/featureIndicator"
         android:layout_width="match_parent"
         android:layout_height="28dip"
         android:background="@android:color/transparent"
         android:textColor="@color/ebony"
         app:ci_drawable="@drawable/circle_orange"
         app:ci_drawable_unselected="@drawable/circle_grey" />
-<!--
-    <com.viewpagerindicator.TitlePageIndicator
-            android:id="@+id/feature_indicator"
-            android:layout_height="wrap_content"
-            android:textColor="@color/ebony"
-            android:layout_width="fill_parent" />
--->
 
     <androidx.viewpager.widget.ViewPager
-            android:id="@+id/feature_pager"
+            android:id="@+id/featurePager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (c) 2014 Kinvey Inc.
+  Copyright (c) 2019 Kinvey Inc.
   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
   in compliance with the License. You may obtain a copy of the License at
 
@@ -12,47 +12,49 @@
   the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/ghost_white"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ghost_white"
+    android:orientation="vertical">
+
     <FrameLayout android:id="@+id/my_content"
-                 android:layout_width="match_parent"
-                 android:layout_height="0dip"
-                 android:layout_weight="1">
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView android:text="@string/user_update_description"
-                      style="@style/usecase_description"/>
+                style="@style/usecase_description"/>
 
             <LinearLayout style="@style/usecase_row">
                 <LinearLayout
-                        style="@style/usecase_row_label"/>
-                <Button android:id="@+id/user_update_current"
-                        android:text="Update current user"
-                        style="@style/usecase_action_button"/>
+                    style="@style/usecase_row_label"/>
+                <Button android:id="@+id/userUpdateCurrentBtn"
+                    android:text="@string/user_update_update_cur_user"
+                    style="@style/usecase_action_button"/>
             </LinearLayout>
 
             <LinearLayout style="@style/usecase_row">
                 <LinearLayout
-                        style="@style/usecase_row_label"/>
-                <Button android:id="@+id/user_update_other"
-                        android:text="Update other user (needs permission)"
-                        style="@style/usecase_action_button"/>
+                    style="@style/usecase_row_label"/>
+                <Button android:id="@+id/userUpdateOtherBtn"
+                    android:text="@string/user_update_other_user"
+                    style="@style/usecase_action_button"/>
             </LinearLayout>
+
         </LinearLayout>
 
-
     </FrameLayout>
+
     <LinearLayout android:id="@+id/my_toolbar"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </LinearLayout>
-
 
 </LinearLayout>
