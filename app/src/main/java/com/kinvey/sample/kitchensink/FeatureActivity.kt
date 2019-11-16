@@ -14,19 +14,16 @@
 package com.kinvey.sample.kitchensink
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.kinvey.android.Client
-import com.kinvey.android.model.User
 import kotlinx.android.synthetic.main.activity_feature.*
 
 /**
  * @author edwardf
  * @since 2.0
  */
-abstract class FeatureActivity : AppCompatActivity() {
+abstract class FeatureActivity : BaseAppCompatActivity() {
 
     private var mFragments: List<UseCaseFragment>? = arrayListOf()
     private var mAdapter: FeatureAdapter? = null
@@ -34,10 +31,6 @@ abstract class FeatureActivity : AppCompatActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feature)
-    }
-
-    public override fun onPause() {
-        super.onPause()
     }
 
     public override fun onResume() {
@@ -56,8 +49,6 @@ abstract class FeatureActivity : AppCompatActivity() {
     override fun getApplicationContext(): App? {
         return App.instance
     }
-
-    val client: Client<User>? = applicationContext?.client
 
     abstract val fragments: List<UseCaseFragment>?
 

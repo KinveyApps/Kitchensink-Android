@@ -80,5 +80,12 @@ abstract class UseCaseFragment : Fragment() {
         get() = (activity as FeatureActivity?)?.applicationContext
 
     open val client: Client<User>?
-        get() = (activity as FeatureActivity?)?.client
+        get() = (activity as BaseAppCompatActivity?)?.client
+
+
+    fun replaceFragment(fragment: Fragment, backStack: Boolean = false) {
+        if (activity is BaseAppCompatActivity) {
+            (activity as BaseAppCompatActivity).replaceFragment(fragment, backStack)
+        }
+    }
 }

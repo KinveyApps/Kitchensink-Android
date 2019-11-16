@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1077333301769",
+    "firebase_url": "https://kinveytest-242822.firebaseio.com",
+    "project_id": "kinveytest-242822",
+    "storage_bucket": "kinveytest-242822.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077333301769:android:82a3bb9bacb0d9b43676d8",
+        "android_client_info": {
+          "package_name": "com.kinvey.sample.kitchensink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077333301769-rt4j7hs39jnn4isc5s1u4ctug338arpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxKY-Yg1k4IrcZHf-Xtnd9gV9Kdox40pg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077333301769-rt4j7hs39jnn4isc5s1u4ctug338arpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

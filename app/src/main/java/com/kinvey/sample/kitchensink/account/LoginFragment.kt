@@ -150,11 +150,8 @@ class LoginFragment : UseCaseFragment(), OnClickListener, OnCheckedChangeListene
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            com.kinvey.sample.kitchensink.R.id.menu_sign_up -> {
-                val ft = activity?.supportFragmentManager?.beginTransaction()
-                ft?.replace(R.id.content, RegisterFragment())
-                ft?.addToBackStack("register")
-                ft?.commit()
+            R.id.menu_sign_up -> {
+                replaceFragment(RegisterFragment(), true)
                 return true
             }
         }

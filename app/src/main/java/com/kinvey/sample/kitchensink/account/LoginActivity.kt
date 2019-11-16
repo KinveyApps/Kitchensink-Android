@@ -13,32 +13,19 @@
  */
 package com.kinvey.sample.kitchensink.account
 
-import android.R.id
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.kinvey.android.Client
-import com.kinvey.android.model.User
-import com.kinvey.sample.kitchensink.App
+import com.kinvey.sample.kitchensink.BaseAppCompatActivity
 
 /**
  * @author edwardf
  * @since 2.0
  */
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseAppCompatActivity() {
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(id.content, LoginFragment())
-        ft.commit()
+        startLoginFragment()
     }
 
-    public override fun onPause() {
-        super.onPause()
-    }
-
-    private val isUserLoggedIn: Boolean
-        get() = client?.isUserLoggedIn ?: false
-
-    private val client: Client<User>?
-        get() = (applicationContext as App).client
+    private fun startLoginFragment() = replaceFragment(LoginFragment())
 }
