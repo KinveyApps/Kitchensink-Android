@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kitchensink</string>
+
+    <string name="login_username">username</string>
+    <string name="login_password">password</string>
+    <string name="feature_appdata">App Data</string>
+    <string name="feature_query">Query</string>
+    <string name="feature_user">User</string>
+    <string name="feature_usergroup">UserGroup</string>
+    <string name="feature_caching">Caching</string>
+    <string name="feature_file">File</string>
+    <string name="feature_push">Push</string>
+    <string name="feature_login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <string name="file_delete_description">You can delete the sample.txt file from the Kinvey service </string>
+    <string name="file_download_description">You can download the contents of sample.txt to the internal SDCARD. </string>
+    <string name="file_upload_description">You can edit the contents of sample.txt file to be uploaded to your backend.  The contents of the file will first be saved to the internal SDCARD then uploaded using the Kinvey file service.</string>
+    <string name="appdata_get_description">Below you can enter specific Entity\'s ID.  After pushing the button, the Entity will be retrieved from Kinvey and displayed.</string>
+    <string name="appdata_put_description">Below you can enter values for creating a new Entity, and then save it to Kinvey\'s Backend with the press of a button.</string>
+    <string name="appdata_query_description">Use queries when you want to fetch data from your backend that match a specific set of conditions.</string>
+    <string name="appdata_aggregate_description">Aggregates allows you to collect all entities with the same value for a field or fields, and then apply a reduce function (such as count or average) on all those items.</string>
+
+    <string name="aggregate_count_text">Count</string>
+    <string name="aggregate_perform_count_text">perform a Count on creator</string>
+    <string name="aggregate_sum_text">Sum</string>
+    <string name="aggregate_perform_sum_text">perform a Sum on creator</string>
+    <string name="aggregate_min_text">Min</string>
+    <string name="aggregate_perform_min_text">perform a Min on creator</string>
+    <string name="aggregate_max_text">Max</string>
+    <string name="aggregate_perform_max_text">perform a Max on creator</string>
+    <string name="aggregate_average_text">Average</string>
+    <string name="aggregate_perform_average_text">perform an Average on creator</string>
+
+    <string name="get_there_are_text">There are:</string>
+    <string name="get_view_id_text">Viewing id:</string>
+    <string name="get_id_text">id:</string>
+    <string name="get_name_text">name:</string>
+    <string name="get_dots_text">...</string>
+    <string name="get_load_text">Load</string>
+
+    <string name="put_how_many_text">How Many To Add?</string>
+    <string name="put_delete_all_text">Delete all?</string>
+    <string name="put_create_text">Create</string>
+
+    <string name="query_entities_created_cur_user_text">Query for entities created by current user</string>
+    <string name="query_cur_user_text">current user</string>
+    <string name="query_entities_created_another_user_text">Query for entities not created by current user</string>
+    <string name="query_not_cur_user_text">not current user</string>
+
+    <string name="upload_enter_file_content_text">Enter file contents!</string>
+    <string name="upload_text">Upload</string>
+
+    <string name="push_description">hit \"Register\" to register the currently active user for push notifications. This functionality is associated with the application\'s package name <br/>— So if you want to configure your own push make sure you change this sample\'s package name!</string>
+    <string name="push_status">Push Status:</string>
+    <string name="push_register">Register for Push</string>
+
+    <string name="user_lookup_description">Perform user lookup operations to discover other users</string>
+    <string name="user_lookup_update_user">Update current user</string>
+    <string name="user_lookup_perform_lookup">Perform lookup</string>
+
+    <string name="menu_login">Login</string>
+    <string name="custom_endpoints_description"> create a new custom endpoint named `doit` through the console, with the following code: \nfunction onRequest(request, response, modules){
+        \nresponse.body = [{"resp": "seems to be working!"}];
+        \nresponse.complete(201);
+        \n}\n and then you can try it here</string>
+    <string name="custom_endpoints_def_name">testKitchenSink</string>
+    <string name="custom_endpoints_edit_hint">Enter name of custom endpoint</string>
+
+    <string name="user_update_description">Update information in the user collection via the User API</string>
+    <string name="user_update_update_cur_user">Update current user</string>
+    <string name="user_update_other_user">Update other user (needs permission)</string>
+
+</resources>
